@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,137 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArrivalTimeLessThanZero" xml:space="preserve">
+    <value>A process must have an arrival time of 0 or later.</value>
+    <comment>Message when a process has an arrival time of less than one.</comment>
+  </data>
+  <data name="CpuUtilizationBeforeSimulationCompleted" xml:space="preserve">
+    <value>The CPU utilization can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to calculate the CPU utilization before the simulation has completed.</comment>
+  </data>
+  <data name="FileNameLessThanOneChar" xml:space="preserve">
+    <value>The name used for the generated report file must be at least one char in length.</value>
+    <comment>Message when file to save report as is and empty string.</comment>
+  </data>
+  <data name="FileNameNotSpecified" xml:space="preserve">
+    <value>A name for the report must be specified.</value>
+    <comment>Message when a report file is not specified.</comment>
+  </data>
+  <data name="GetMaximumWaitTimeBeforeSimulationInvoked" xml:space="preserve">
+    <value>The maximum wait time can only be calculated upon simulation completion.</value>
+    <comment>Message when maximum wait time is called before simulation invocation.</comment>
+  </data>
+  <data name="GetMinimumWaitTimeBeforeSimulationInvoked" xml:space="preserve">
+    <value>The minimum wait time can only be calculated upon simulation completion.</value>
+    <comment>Message when minimum wait time is called before simulation invocation.</comment>
+  </data>
+  <data name="GetResponseTimeMeanBeforeSimulationComplete" xml:space="preserve">
+    <value>The mean response time can only be calculated upon simulation completion.</value>
+    <comment>Message when trying tp calculate the response time mean before the simulation has actually completed.</comment>
+  </data>
+  <data name="GetResponseTimeStandardDeviationBeforeSimulationCompleted" xml:space="preserve">
+    <value>The response time standard deviation can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to calculate response time std dev before simulation completion.</comment>
+  </data>
+  <data name="GetResponseTimeVarianceBeforeSimulationCompleted" xml:space="preserve">
+    <value>The response time variance can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to calculate response time variance before simulation completion.</comment>
+  </data>
+  <data name="GetThroughputMeanBeforeSimulationComplete" xml:space="preserve">
+    <value>The throughput mean can only be calculated when the simulation has completed.</value>
+    <comment>Message when calling GetThroughputMean before the simulation has completed.</comment>
+  </data>
+  <data name="GetThroughputStandardDeviationBeforeSimulationComplete" xml:space="preserve">
+    <value>The throughput standard deviation can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to attain throughput std dev before simulation completion.</comment>
+  </data>
+  <data name="GetThroughputVarianceBeforeSimulationComplete" xml:space="preserve">
+    <value>The throughput variance can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to attain throughput variance before simulation completion.</comment>
+  </data>
+  <data name="GetTurnaroundTimeMeanBeforeSimulationComplete" xml:space="preserve">
+    <value>The turnaround time mean can only be calculated after the simulation has been completed.</value>
+    <comment>Message when trying to calculate the turnaround time before the simulation has completed.</comment>
+  </data>
+  <data name="GetTurnaroundTimeStandardDeviationSimulationCompleted" xml:space="preserve">
+    <value>The turnaround time standard deviation can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to calculate turnaround time standard deviation before simulation completion.</comment>
+  </data>
+  <data name="GetTurnaroundTimeVarianceBeforeSimulationCompleted" xml:space="preserve">
+    <value>The turnaround time variance can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to calculate turnaround time variance before simulation completion.</comment>
+  </data>
+  <data name="GetVarianceInvokedBeforeSimulationInvoked" xml:space="preserve">
+    <value>The process wait time variance can only be calculated upon simulation completion.</value>
+    <comment>Message when trying to acquire the variance of process wait times before simulation has started.</comment>
+  </data>
+  <data name="GetWaitTimeMeanInvokedBeforeSimulationCompleted" xml:space="preserve">
+    <value>The mean wait time can only be calculated upon simulation completion.</value>
+    <comment>Message when average wait time is computed before simulation has completed.</comment>
+  </data>
+  <data name="GetWaitTimeStandardDeviationBeforeSimulationInvoked" xml:space="preserve">
+    <value>The process wait time standard deviation can only be calculated upon simulation completion.</value>
+    <comment>Message when std dev is calculated before the simulation is invoked.</comment>
+  </data>
+  <data name="NoProcessesToRun" xml:space="preserve">
+    <value>A simulation cannot contain 0 processes.</value>
+    <comment>Message when no processes are specified in a load test scenario.</comment>
+  </data>
+  <data name="NumberOfProcessesNegative" xml:space="preserve">
+    <value>The number of processes associated with a process category must be a positive value.</value>
+    <comment>Message when a negative value is used for the number of processes in RepeatRunner.</comment>
+  </data>
+  <data name="OutputDirectoryLessThanThree" xml:space="preserve">
+    <value>The minimum number of characters a valid fully qualified directory path can have is 3.</value>
+    <comment>Message when qualified path is too small to be valid.</comment>
+  </data>
+  <data name="OutputDirectoryNonExistant" xml:space="preserve">
+    <value>The output directory provided does not exist.</value>
+    <comment>Message when the output dir provided to report doesn't exist.</comment>
+  </data>
+  <data name="PollTimeGreaterThanZero" xml:space="preserve">
+    <value>The poll time specified must be greater than 0.</value>
+    <comment>Message when poll time is less than 1.</comment>
+  </data>
+  <data name="ProcessBurstTimeLessThanOne" xml:space="preserve">
+    <value>A process must have a burst time of at least 1ns.</value>
+    <comment>Message when a process has a burst time of less than one.</comment>
+  </data>
+  <data name="ProcessIdLessThanZero" xml:space="preserve">
+    <value>A processes' PID must be a positive value. </value>
+    <comment>Message when a process Id is negative.</comment>
+  </data>
+  <data name="ProcessLoadEmpty" xml:space="preserve">
+    <value>The processLoad must contain at least one process.</value>
+    <comment>Message when processLoad contains no processes.</comment>
+  </data>
+  <data name="RunnerStrategyNull" xml:space="preserve">
+    <value>A strategy must be specified.</value>
+    <comment>Message when a strategy is not provided.</comment>
+  </data>
+  <data name="RunsLessThanTwo" xml:space="preserve">
+    <value>The minimum number of times a simulation can be ran is 2.</value>
+    <comment>Message when you create a RepeatRunner with the runs less than 1.</comment>
+  </data>
+  <data name="ThresholdOutsideBounds" xml:space="preserve">
+    <value>The % threshold to invoke the expert rule has to be within 1 - 100.</value>
+    <comment>Message when threshold % is less than 1 or greater than 100.</comment>
+  </data>
+  <data name="ThroughputWindowsBeforeCompletion" xml:space="preserve">
+    <value>The ThroughputWindows property can only be accessed upon simulation completion.</value>
+    <comment>Message when trying to see the data in throughput windows before sim comp.</comment>
+  </data>
+  <data name="TimeQuantumLessThanOne" xml:space="preserve">
+    <value>The time quantum cannot be less than 1.</value>
+    <comment>Message when time quantum provided is less than 1.</comment>
+  </data>
+  <data name="WindowTimeFrameLessThanZero" xml:space="preserve">
+    <value>The windowTimeframe cannot be less than 0.</value>
+    <comment>Message when the window time frame is less than 1.</comment>
+  </data>
 </root>

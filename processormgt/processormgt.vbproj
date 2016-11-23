@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CAF20066-1B09-4ED0-9537-CA66D3A8DC73}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>processormgt.Module1</StartupObject>
+    <StartupObject>processormgt.Main</StartupObject>
     <RootNamespace>processormgt</RootNamespace>
     <AssemblyName>processormgt</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -68,7 +68,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
+    <Compile Include="BurstTime.vb" />
+    <Compile Include="RoundRobin.vb" />
+    <Compile Include="ShortestJobFirstExpert.vb" />
+    <Compile Include="ShortestJobFirst.vb" />
+    <Compile Include="FirstComeFirstServed.vb" />
+    <Compile Include="IStrategy.vb" />
+    <Compile Include="MathUtil.vb" />
+    <Compile Include="Main.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -84,6 +91,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Pair.vb" />
+    <Compile Include="Pairs.vb" />
+    <Compile Include="Priority.vb" />
+    <Compile Include="PriorityFirst.vb" />
+    <Compile Include="Process.vb" />
+    <Compile Include="ProcessCompletedEventArgs.vb" />
+    <Compile Include="ProcessEventArgs.vb" />
+    <Compile Include="ProcessLoad.vb" />
+    <Compile Include="ProcessPreemptedEventArgs.vb" />
+    <Compile Include="ProcessResumedEventArgs.vb" />
+    <Compile Include="ProcessRunData.vb" />
+    <Compile Include="ProcessStartedEventArgs.vb" />
+    <Compile Include="Runner.vb" />
+    <Compile Include="RunnerCompletedEventArgs.vb" />
+    <Compile Include="RunnerStartedEventArgs.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
